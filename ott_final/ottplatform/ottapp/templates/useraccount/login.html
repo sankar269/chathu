@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-family: 'Times New Roman', serif; /* Change font family */
+            font-size: 40px; /* Increase font size */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for decoration */
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/Amazing-HD-Black-Wallpapers.jpg') no-repeat center fixed;
+            background-size: cover;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 12px);
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #register-link {
+            text-align: center;
+            margin-top: 10px;
+            color:white;
+            font-size:17px;
+        }
+
+        #register-link a {
+            color: #007bff;
+        }
+
+        #register-link a:hover {
+            text-decoration: underline;
+        }
+          header {
+            background-color: black;
+            color: #fff;
+            padding: 1em;
+            text-align: right;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        header a:hover {
+            background-color: #555;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        header img {
+            width: 100px; /* Set the width of your logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-right:1226px; /* Add margin to separate the logo from other content */
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/static/d-flix newlogo.jpg" alt="D-Flix Logo"> <!-- Provide the correct path to your logo -->
+        <a href="{% url 'home' %}">Back</a>
+    </header>
+    <h1>Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+
+    </form>
+    <div id="register-link">
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </div>
+    <footer>
+        <p>&copy; 2024 D-Flix. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+Hello {{ firstname }},
+
+Welcome to Our App! We are excited to have you on board.
+
+Best regards,
+Team D-Flix

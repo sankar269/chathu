@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 12px);
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        h2{
+            text-align:center;
+            color:white;
+            margin-top:-50px;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/Amazing-HD-Black-Wallpapers.jpg') no-repeat center fixed;
+            background-size: cover;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            height:3%;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+        }
+        #logo {
+            width: 100px; /* Set the width of your logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-right:1226px; /* Add margin to s
+        }
+
+
+    </style>
+    <a href="{% url 'login' %}" class="back-button">Back</a>
+    <img id="logo" src="/static/d-flix newlogo.jpg" alt="D-Flix Logo">
+    <h2>Register</h2>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Register & Subscribe</button>
+
+    </form>
+

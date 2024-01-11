@@ -1,0 +1,7 @@
+<!-- Update the template to handle kid profiles -->
+<form method="post" action="{% url 'kid_profile_registration' customer.id %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ profile_form.as_p }}
+  <input type="submit" value="Save Profiles">
+  <div id="error-message" style="color: red;"></div>
+</form>

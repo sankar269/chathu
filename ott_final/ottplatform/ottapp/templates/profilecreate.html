@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Add this CSS to your stylesheet or in a <style> tag in your HTML file */
+
+      /* Background styles */
+       .bg-primary_black {
+  background-color: #0c111b; /* Change this color to your desired background color */
+  background-image: url('assets/background_netflix.jpg');
+  background-size: cover;
+  background-position: center;
+     }
+
+    /* Form container styles */
+    .w-10/12 {
+  max-width: 90%; /* Adjust the maximum width of the form container */
+       }
+
+        /* Form input and select styles */
+   .bg-gray-900 {
+     background-color: #333; /* Change this color to your desired form background color */
+       }
+
+      .text-gray-100 {
+      color: #fff; /* Change this color to your desired text color */
+        }
+
+        .text-gray-200 {
+          color: #ccc; /* Change this color to your desired text color */
+     }
+
+input,
+    select {
+  border: 1px solid #555; /* Change this color to your desired input/select border color */
+      }
+
+/* Button styles */
+     .bg-primary_red {
+        background-color: #e50914; /* Change this color to your desired button background color */
+     }
+
+/* Additional styling for button on hover */
+           .bg-primary_red:hover {
+            background-color: #ff1f2b; /* Change this color to your desired button hover color */
+         }
+
+    </style>
+    <section class='bg-primary_black min-h-screen py-20 md:py-32 flex-col flex items-center' style="background-image: url('assets/background_netflix.jpg');">
+        <div class="flex flex-wrap justify-center  w-10/12  md:w-6/12">
+            <form method="post" action="{% url 'profile_create' customer.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ profile_form.as_p }}
+    <input type="submit" value="Save Profiles">
+  </form>
+        </div>
+
+    </section>
+    {% endblock content %}

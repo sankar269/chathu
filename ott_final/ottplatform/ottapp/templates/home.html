@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-Flix</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li, a {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/static/Netflix-Background.jpg') no-repeat center fixed;
+            background-size: cover;
+        }
+
+        /* Header styles */
+        header {
+            background-color: black;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 0.5em;
+            font-size: 14px;
+            font-family: 'Times New Roman', serif; /* Change font family */
+        }
+
+
+        /* Navigation styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: space-between; /* Distribute space between items */
+}
+
+nav ul li {
+    margin-right: 1em;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Move the "Home" button to the right side */
+nav ul .right-align {
+    margin-left: auto;
+}
+
+/* Language dropdown style */
+nav select {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+nav select option {
+    background-color: #333;
+    color: #fff;
+
+}
+
+
+        /* Content section styles */
+        .content {
+            padding: 2em;
+        }
+
+        .content p {
+            line-height: 1.5;
+        }
+
+        /* Footer styles */
+         footer {
+               position: fixed;
+               bottom: 0;
+               width: 100%;
+               background-color: black;
+               color: #fff;
+               padding: 1em;
+               text-align: center;
+               margin-left:-33px;
+         }
+
+        nav select {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5em;
+            border: none;
+            cursor: pointer;
+        }
+
+        nav select option {
+            background-color: #333;
+            color: #fff;
+        }
+        body {
+        background-color: #000; /* Set a background color (adjust as needed) */
+    }
+
+    .content {
+        color: white; /* Set text color to white */
+        text-align: center; /* Center-align text */
+    }
+
+    h1 {
+            font-size: 36px; /* Set the font size for h1 (adjust as needed) */
+            margin-bottom: 2em; /* Add margin for spacing */
+            margin-top:5cm;
+            font-family: 'Times New Roman', serif; /* Change font family */
+        }
+
+    h3 {
+            font-size: 25px; /* Set the font size for h3 (adjust as needed) */
+            margin-bottom: 4em; /* Add margin for spacing */
+            color:white;
+            margin-top:-1cm;
+
+        }
+    h1 {
+            text-align: center;
+            color: white;
+            font-family: 'Times New Roman', serif; /* Change font family */
+            font-size: 40px; /* Increase font size */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for decoration */
+        }
+    header img {
+            width: 100px; /* Set the width of your logo */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+
+        <img src="/static/d-flix newlogo.jpg" alt="D-Flix Logo"> <!-- Provide the correct path to your logo -->
+        <h2>Welcome to D-Flix</h2>
+        <nav>
+            <ul>
+                <li class="right-align"><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'help' %}">Help</a></li>
+                <!-- Add other navigation links as needed -->
+            </ul>
+           <select id="languageDropdown" onchange="changeLanguage()">
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+            </select>
+        </nav>
+    </header>
+
+   <section class="content">
+    <!-- Add content for the home page -->
+    <h1 id="title">Your Ultimate Movie Destination!</h1>
+        <h3 id="subtitle">Experience the thrill of unlimited movies at your fingertips. D-flix is not just a streaming service; it's your passport to a world of cinematic wonders.</h3>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 D-Flix. All rights reserved.</p>
+    </footer>
+     <script>
+
+        // Set a default language when the page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            changeLanguage();
+        });
+
+        function changeLanguage() {
+            var selectedLanguage = document.getElementById("languageDropdown").value;
+
+            // Example: Change content to Hindi if Hindi is selected
+            if (selectedLanguage === "hindi") {
+                changeToHindi();
+            } else {
+                // Change content to English if English or any other language is selected
+                changeToEnglish();
+            }
+        }
+
+        // Add the changeToEnglish function
+        function changeToEnglish() {
+            document.getElementById("title").innerText = 'Your Ultimate Movie Destination!';
+            document.getElementById("subtitle").innerText = 'Experience the thrill of unlimited movies at your fingertips. D-flix is not just a streaming service; it\'s your passport to a world of cinematic wonders.';
+        }
+
+        // Add the changeToHindi function
+        function changeToHindi() {
+            document.getElementById("title").innerText = 'आपका अंतिम मूवी गंतव्य!';
+            document.getElementById("subtitle").innerText = 'अपने हाथों में अनलिमिटेड मूवीज का आनंद लें। D-flix बस एक स्ट्रीमिंग सेवा नहीं है; यह एक सिनेमाटिक आश्चर्य की दुनिया के लिए आपका पासपोर्ट है।';
+        }
+
+        // Update the onchange event for the languageDropdown
+        document.getElementById("languageDropdown").onchange = changeLanguage;
+    </script>
+
+</body>
+</html>

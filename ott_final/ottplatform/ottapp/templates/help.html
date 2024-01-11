@@ -1,0 +1,89 @@
+<!-- help.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-Flix - Help</title>
+    <!-- Add your styles if needed -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: black;
+            color: #fff;
+            padding: 1em;
+            text-align: right;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        header a:hover {
+            background-color: #555;
+        }
+
+        section#help {
+            padding: 2em;
+            text-align: center;
+
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        /* Add this style for the call button */
+.call-button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #4CAF50; /* Green color, you can customize */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.call-button:hover {
+    background-color: #45a049; /* Darker green color for hover, you can customize */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{% url 'home' %}">Back</a>
+    </header>
+
+
+    <section id="help" class="content">
+    <h1>Need Help?</h1>
+    <p>If you have any questions or issues, feel free to contact our support team.</p>
+    <p>Email: <a href="mailto:aiswaryarmahesh2018@gmail.com?subject=Support%20Inquiry&body=Hello%20Support,">aiswaryarmahesh2018@gmail.com</a></p>
+        <p>Phone: +91 8547228186</p>
+
+</section>
+
+
+
+
+    <footer>
+        <p>&copy; 2024 D-Flix. All rights reserved.</p>
+    </footer>
+
+    <!-- Include your scripts if needed -->
+</body>
+</html>

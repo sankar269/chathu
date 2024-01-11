@@ -1,0 +1,10 @@
+<!-- delete_kid_profile.html -->
+{% block content %}
+  <h2>Delete Kid Profile</h2>
+  <p>Are you sure you want to delete the profile for {{ kid_profile.name }}?</p>
+  <form method="post" action="{% url 'delete_kid_profile' customer.id kid_profile.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+  <a href="{% url 'profile_detail' customer.id %}">Cancel</a>
+{% endblock content %}

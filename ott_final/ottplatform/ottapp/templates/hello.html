@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header img {
+            width: 120px;
+            height: auto;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #e50914;
+        }
+
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .movie-card {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .movie-card img {
+            width: 85%;
+            height: 200px; /* Set a fixed height for all movie images */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-card h3 {
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .movie-card p {
+            font-size: 14px;
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="header">
+    <img src="netflix-logo.png" alt="Netflix Logo">
+</div>
+
+<div class="main-content">
+    <h1>Popular Movies</h1>
+    <div class="movie-container">
+        <!-- Loop through movies and display details -->
+        {% for movie in movies %}
+            <div class="movie-card">
+                <img src="{{ movie.image }}" alt="{{ movie.name }}">
+                <h3>{{ movie.name }}</h3>
+                <p>Year: {{ movie.year }}</p>
+                <p>Rating: {{ movie.rating }}</p>
+                <!-- Add other movie details as needed -->
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Netflix Clone</p>
+</footer>
+
+</body>
+</html>

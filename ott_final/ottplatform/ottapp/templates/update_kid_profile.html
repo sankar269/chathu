@@ -1,0 +1,10 @@
+<!-- update_kid_profile.html -->
+{% block content %}
+  <h2>Update Kid Profile</h2>
+  <form method="post" action="{% url 'update_kid_profile' customer.id kid_profile.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Profile</button>
+  </form>
+  <a href="{% url 'profile_list' customer.id %}">Cancel</a>
+{% endblock %}

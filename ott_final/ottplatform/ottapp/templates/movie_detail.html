@@ -1,0 +1,38 @@
+<!-- movie_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }} - Movie Details</title>
+    <!-- Add your CSS styles if needed-->
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ movie.title }}</h1>
+
+    <div class="movie-details">
+        <img src="{{ movie.image_cover.url }}" alt="{{ movie.title }} Cover" class="movie-cover">
+        <p>{{ movie.description }}</p>
+    </div>
+
+    <div class="additional-details">
+        <p><strong>Type:</strong> {{ movie.get_type_display }}</p>
+        <p><strong>Languages:</strong> {{ movie.get_languages_display }}</p>
+        <p><strong>Age Limit:</strong> {{ movie.get_age_limit_display }}</p>
+        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p><strong>Genre:</strong> {{ movie.get_genre_display }}</p>
+        <p><strong>Length:</strong> {{ movie.length }} minutes</p>
+        <!-- Add other details as needed -->
+      <a href="{% url 'video_detail' uuid=movie.uuid %}" class="btn btn-primary">Watch Now</a>
+
+    </div>
+
+    <!-- Add navigation or other content as needed -->
+
+</div>
+
+</body>
+</html>

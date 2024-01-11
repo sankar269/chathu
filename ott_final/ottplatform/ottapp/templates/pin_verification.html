@@ -1,0 +1,97 @@
+<!-- templates/pin_verification.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIN Verification</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color:#0c111b;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color:white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            width: 300px;
+            background:lightblue;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a.back-button {
+            background-color:#333; /* Green color for Back button */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width:43px;
+            margin-right:5cm;
+            border-radius:5px;
+        }
+
+        a.back-button:hover {
+            background-color: #555;
+        }
+        </style>
+</head>
+<body>
+<a href="{% url 'profile_detail' customer.id %}" class="back-button">Back</a>
+<h1>PIN Verification for {{ profile.name }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ pin_form.as_p }}
+    <button type="submit">Verify PIN</button>
+</form>
+
+</body>
+</html>

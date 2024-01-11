@@ -1,0 +1,149 @@
+<!-- update_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Adult Profile</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color:#0c111b;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 30px;
+            color:white;
+
+        }
+
+        form {
+            width: 300px;
+            background: lightblue;
+            padding: 61px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: -10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        label span {
+            margin-right: 10px;
+            min-width: 100px; /* Adjust as needed */
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="file"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"],
+        a {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding:10px;
+            width:317px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            background-color: red; /* Red color for Cancel button */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding:10px;
+        }
+
+        a:hover {
+            background-color: #cc0000;
+        }
+        .error-message {
+            color: red;
+            margin-top: -10px; /* Adjust as needed */
+            margin-bottom: 10px;
+        }
+        a.back-button {
+            background-color: #333; /* Green color for Back button */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width:43px;
+            margin-right:5cm;
+        }
+
+        a.back-button:hover {
+            background-color:#555;
+        }
+
+        a {
+            background-color: red; /* Red color for Cancel button */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        a:hover {
+            background-color: #cc0000;
+        }
+
+    </style>
+</head>
+{% block content %}
+  <a href="{% url 'profile_detail' customer.id %}" class="back-button">Back</a>
+  <h2>Update Adult Profile</h2>
+  <form method="post" action="{% url 'update_profile' customer.id profile.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Profile</button>
+    <a href="{% url 'profile_detail' customer.id   %}">Cancel</a>
+  </form>
+
+{% endblock content %}
